@@ -4,9 +4,9 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 
 import store, { persistor } from './redux';
-import Greetings from './components/Greetings';
 import bootstrap from './redux/bootstrap';
 import { GlobalStyle } from './styles/GlobalStyle';
+import Home from './containers/Home';
 
 const mainElement = document.createElement('div');
 mainElement.setAttribute('id', 'root');
@@ -18,7 +18,7 @@ const App = () => {
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
         <GlobalStyle />
-        <Greetings />
+        <Home />
       </PersistGate>
     </Provider>
   );

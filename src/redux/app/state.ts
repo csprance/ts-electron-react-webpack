@@ -1,13 +1,7 @@
-import { AppState, DialogState } from './types';
-
-export const defaultDialogState: DialogState = {
-  settingsDialogOpen: false,
-};
+import { AppState } from './types';
 
 export const defaultState: AppState = {
-  localVersion: '0.0.1',
-  remoteVersion: '0.0.1',
-  ...defaultDialogState,
+  value: 10,
 };
 
 export default defaultState;
