@@ -4,9 +4,9 @@ import { Provider } from 'react-redux';
 import { PersistGate } from 'redux-persist/integration/react';
 
 import store, { persistor } from './redux';
-import { GlobalStyle } from './styles/GlobalStyle';
 import Greetings from './components/Greetings';
 import bootstrap from './redux/bootstrap';
+import { GlobalStyle } from './styles/GlobalStyle';
 
 const mainElement = document.createElement('div');
 mainElement.setAttribute('id', 'root');

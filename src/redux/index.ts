@@ -1,9 +1,8 @@
 import {
   combineReducers,
-  compose,
   configureStore,
   getDefaultMiddleware,
-} from "@reduxjs/toolkit";
+} from '@reduxjs/toolkit';
 import {
   FLUSH,
   PAUSE,
@@ -13,13 +12,13 @@ import {
   PURGE,
   REGISTER,
   REHYDRATE,
-} from "redux-persist";
-import storage from "redux-persist/lib/storage"; // defaults to localStorage for web
-import app from "./app";
-import { useDispatch } from "react-redux";
+} from 'redux-persist';
+import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
+import app from './app';
+import { useDispatch } from 'react-redux';
 
 const persistConfig = {
-  key: "root",
+  key: 'root',
   storage,
 };
 
@@ -30,9 +29,6 @@ export const rootReducer = combineReducers({
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
 export type RootState = ReturnType<typeof rootReducer>;
-
-const composeEnhancers =
-  (window as any).__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 export const store = configureStore({
   enhancers: [],
