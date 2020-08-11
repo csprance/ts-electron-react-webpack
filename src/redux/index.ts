@@ -1,7 +1,9 @@
 import {
+  Action,
   combineReducers,
   configureStore,
   getDefaultMiddleware,
+  ThunkAction,
 } from '@reduxjs/toolkit';
 import {
   FLUSH,
@@ -14,7 +16,7 @@ import {
   REHYDRATE,
 } from 'redux-persist';
 import storage from 'redux-persist/lib/storage'; // defaults to localStorage for web
-import app from './app';
+import appReducer from './app/slice';
 import { useDispatch } from 'react-redux';
 
 const persistConfig = {
@@ -23,7 +25,7 @@ const persistConfig = {
 };
 
 export const rootReducer = combineReducers({
-  app,
+  app: appReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
@@ -46,5 +48,7 @@ export const persistor = persistStore(store);
 export type AppDispatch = typeof store.dispatch;
 
 export const useAppDispatch = () => useDispatch<AppDispatch>(); // Export a hook that can be resused to resolve types
+
+export type AppThunk = ThunkAction<void, RootState, unknown, Action<string>>;
 
 export default store;

@@ -3,8 +3,7 @@ import { Store } from '@reduxjs/toolkit';
 import { registerHotkeys } from '../constants/hotkeys';
 import logger from '../lib/logger';
 
-// This is the callback function from the redux-persist persistor
-// It is called after the store is rehydrated
+// This function is run once when the application starts up
 export default (store: Store): void => {
   logger.info('Bootstrapping Application');
 
